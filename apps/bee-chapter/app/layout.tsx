@@ -1,4 +1,10 @@
 import './global.css';
+import { Roboto } from 'next/font/google';
+
+export const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['100', '400', '500', '700'],
+});
 
 export const metadata = {
   title: 'Welcome to bee-chapter',
@@ -12,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className={roboto.className}>{children}</main>
+      </body>
     </html>
   );
 }

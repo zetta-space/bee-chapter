@@ -1,0 +1,29 @@
+{
+  "name": "bee-chapter-be-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bee-chapter-be-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bee-chapter-be-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "bee-chapter-be:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "bee-chapter-be:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/bee-chapter-be-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bee-chapter-be"]
+}

@@ -1,7 +1,7 @@
 {
-  "name": "bee-chapter",
+  "name": "bee-chapter-be",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/bee-chapter",
+  "sourceRoot": "apps/bee-chapter-be",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,12 +9,11 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/bee-chapter",
-        "postcssConfig": "apps/bee-chapter/postcss.config.js"
+        "outputPath": "dist/apps/bee-chapter-be"
       },
       "configurations": {
         "development": {
-          "outputPath": "apps/bee-chapter"
+          "outputPath": "apps/bee-chapter-be"
         },
         "production": {}
       }
@@ -23,16 +22,16 @@
       "executor": "@nx/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "bee-chapter:build",
+        "buildTarget": "bee-chapter-be:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "bee-chapter:build:development",
+          "buildTarget": "bee-chapter-be:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "bee-chapter:build:production",
+          "buildTarget": "bee-chapter-be:build:production",
           "dev": false
         }
       }
@@ -40,21 +39,21 @@
     "export": {
       "executor": "@nx/next:export",
       "options": {
-        "buildTarget": "bee-chapter:build:production"
+        "buildTarget": "bee-chapter-be:build:production"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/bee-chapter/jest.config.ts"
+        "jestConfig": "apps/bee-chapter-be/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/bee-chapter/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/bee-chapter-be/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
